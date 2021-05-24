@@ -1,9 +1,9 @@
-package Verduras;
+package verduras;
 
 public enum Tipos {
     HOJAS("Hoja"),
-    RAÍCES("Raíz"),
-    FRTUOI("Fruto"),
+    RAICES("Raiz"),
+    FRTUOS("Fruto"),
     BULBOS("Bulbo"),
     TUBÉRCULOS("Tubérculo"),
     SEMILLAS("Semilla"),
@@ -14,6 +14,11 @@ public enum Tipos {
     private String tiposDescripcion;
 
     Tipos(String tiposDescripcion){
-        this.tiposDescripcion=tiposDescripcion;
+        this.tiposDescripcion = tiposDescripcion;
     }
+
+    public String getTiposDescripcion() {
+        return tiposDescripcion;
+    }
+
 }
