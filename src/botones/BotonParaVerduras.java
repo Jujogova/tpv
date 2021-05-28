@@ -25,17 +25,4 @@ public class BotonParaVerduras {
     public Verdura getVerdura() {
         return verdura;
     }
-
-    public static void main(String[] args) {
-        Verdura verdura = new Verdura("Puerro", 153, Tipos.TALLOS);
-        BotonParaVerduras button = new BotonParaVerduras(verdura);
-
-        JFrame frame = new JFrame();
-        JPanel panel = new JPanel();
-        panel.add(button.getBoton());
-        frame.add(panel);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
-    }
 }
