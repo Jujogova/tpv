@@ -1,11 +1,14 @@
 package verduras;
 
 public enum Tipos {
+    /**
+     * Nos muestra el tipo de verdura que es.
+     */
     HOJAS("Hoja"),
     RAICES("Raiz"),
-    FRTUOS("Fruto"),
+    FRUTOS("Fruto"),
     BULBOS("Bulbo"),
-    TUBÉRCULOS("Tubérculo"),
+    TUBERCULOS("Tuberculo"),
     SEMILLAS("Semilla"),
     INFLORESCENCIAS("Inflorescencia"),
     TALLOS("Tallo"),
@@ -13,10 +16,18 @@ public enum Tipos {
 
     private String tiposDescripcion;
 
+    /**
+     * Constructor de tipos de hortalizas.
+     * @param tiposDescripcion
+     */
     Tipos(String tiposDescripcion){
         this.tiposDescripcion = tiposDescripcion;
     }
 
+    /**
+     * Devuelve el tipo de verdura
+     * @return
+     */
     public String getTiposDescripcion() {
         return tiposDescripcion;
     }

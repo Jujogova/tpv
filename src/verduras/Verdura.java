@@ -17,6 +17,7 @@ public class Verdura implements Serializable {
 
     /**
      * Constructor de una verdura
+     *
      * @param nombre
      * @param precio
      * @param tipo
@@ -29,21 +30,27 @@ public class Verdura implements Serializable {
 
     /**
      * Obtiene el nombre de la hortaliza
+     *
      * @return nombre
      */
     public String getNombre() {
         return nombre;
     }
 
+    public Integer getPrecio() {
+        return precio;
+    }
+
     /**
      * Calcula el precio con un int, pero lo pasa a céntimos y euros.
+     *
      * @return precio con euros y céntimos
      */
-    public String getPrecio() {
-        int euros = precio / 100;
-        int centimos = precio % 100;
-        return euros + "," + centimos;
-    }
+    public String getPrecioEnCentimosYEuros() {
+    int euros = precio / 100;
+    int centimos = precio % 100;
+        return euros +","+centimos;
+}
 
     /**
      * Compara objetos

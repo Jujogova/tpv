@@ -6,9 +6,17 @@ import javax.swing.*;
 import java.util.Objects;
 
 public class BotonParaTipos {
+    /**
+     * Atributos de la clase que contiene para los tipos.
+     * Mostrará el tipo de verdura.
+     */
     Tipos tipo;
     JButton boton;
 
+    /**
+     * Constructor de tipos
+     * @param tipo
+     */
     public BotonParaTipos(Tipos tipo) {
         this.tipo = tipo;
         this.boton = new JButton(tipo.getTiposDescripcion());
