@@ -12,7 +12,7 @@ public class PanelVerduras {
     private Set<BotonParaVerduras> listaVerduricas;
     private final JPanel panelVerdura;
 
-    public PanelVerduras() {
+    public PanelVerduras(PanelTiquet panelTiquet) {
         this.listaVerduricas = new TreeSet<>();
         this.panelVerdura = new JPanel(new GridLayout(0,5));
     }

@@ -109,7 +109,6 @@ public class Verdura implements Serializable {
     }
 
     /**
-     * TODO: Carpeta con imagenes.
      * Devuelve la imagen una vez la encuentra en su carpeta.
      * @return la imagen
      */

@@ -10,8 +10,8 @@ public class BotonParaTipos {
      * Atributos de la clase que contiene para los tipos.
      * Mostrará el tipo de verdura.
      */
-    Tipos tipo;
-    JButton boton;
+    private final Tipos tipo;
+    private final JButton boton;
 
     /**
      * Constructor de tipos
@@ -21,6 +21,15 @@ public class BotonParaTipos {
         this.tipo = tipo;
         this.boton = new JButton(tipo.getTiposDescripcion());
     }
+
+    public Tipos getTipo() {
+        return tipo;
+    }
+
+    public JButton getBoton() {
+        return boton;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
