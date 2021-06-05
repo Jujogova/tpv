@@ -26,6 +26,7 @@ public class Verdura implements Serializable {
         this.nombre = nombre;
         this.precio = precio;
         this.tipo = tipo;
+        this.foto= obtieneImagen();
     }
 
     /**
@@ -68,7 +69,7 @@ public class Verdura implements Serializable {
     }
 
     /**
-     * Genera un has
+     * Genera un hash
      * @return int
      */
     @Override

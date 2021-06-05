@@ -13,30 +13,30 @@ public class PanelParaTipos {
     private final PanelVerduras panelVerduras;
     private final JPanel panel;
     private final Set<BotonParaTipos> botonParaTipos;
-    private final Map<Tipos, Set<BotonParaTipos>> listaTiposDeVerduras;
+    private final Map<Tipos, Set<Verdura>> listaTiposDeVerduras;
 
     public PanelParaTipos(PanelVerduras panelVerduras) {
-    this.listaTiposDeVerduras = new HashMap<>();
-    this.panel = new JPanel(new GridLayout(0,1));
-    this. panelVerduras = panelVerduras;
-    this.botonParaTipos = new HashSet<>();
-    generaMapaDeTipos();
-    anyadeVerduraEnUnaListaConSuTipo();
+        this.listaTiposDeVerduras = new HashMap<>();
+        this.panel = new JPanel(new GridLayout(0, 1));
+        this.panelVerduras = panelVerduras;
+        this.botonParaTipos = new HashSet<>();
+        generaMapaDeTipos();
+      
     }
-     public JPanel getPanel() {
+
+    public JPanel getPanel() {
         return panel;
     }
-    public Map<Tipos, Set<BotonParaTipos>> getListaTiposDeVerduras(){
+
+    public Map<Tipos, Set<Verdura>> getListaTiposDeVerduras() {
         return listaTiposDeVerduras;
     }
 
-    private void generaMapaDeTipos(){
-        for (Tipos tipo : Tipos.values()){
+    private void generaMapaDeTipos() {
+        for (Tipos tipo : Tipos.values()) {
             listaTiposDeVerduras.put(tipo, new HashSet<>());
         }
     }
-    public void anyadeVerduraEnUnaListaConSuTipo(Verdura verdura) {
-        listaTiposDeVerduras.get(verdura.getTipo()).add(new BotonParaVerduras(verdura));
 
-    }
+
 }

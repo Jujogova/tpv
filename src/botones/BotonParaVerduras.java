@@ -13,11 +13,7 @@ public class BotonParaVerduras {
 
     public BotonParaVerduras(Verdura verdura) {
         this.verdura = verdura;
-        this.boton = new JButton();
-        boton.setBorder(new EmptyBorder(5, 5, 5, 5));
-        boton.addActionListener(e -> {
-            verdura.getNombre();
-        });
+        this.boton = new JButton(verdura.getFoto());
     }
 
     public JButton getBoton() {
