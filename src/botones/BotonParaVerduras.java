@@ -5,9 +5,10 @@ import verduras.Verdura;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import java.io.Serializable;
 import java.util.Objects;
 
-public class BotonParaVerduras {
+public class BotonParaVerduras implements Serializable {
     private final JButton boton;
     private final Verdura verdura;
 

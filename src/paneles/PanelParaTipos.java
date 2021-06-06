@@ -7,9 +7,10 @@ import verduras.Verdura;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.Serializable;
 import java.util.*;
 
-public class PanelParaTipos {
+public class PanelParaTipos implements Serializable {
     private final PanelVerduras panelVerduras;
     private final JPanel panel;
     private final Set<BotonParaTipos> botonParaTipos;

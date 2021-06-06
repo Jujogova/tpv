@@ -3,9 +3,10 @@ package botones;
 import verduras.Tipos;
 
 import javax.swing.*;
+import java.io.Serializable;
 import java.util.Objects;
 
-public class BotonParaTipos {
+public class BotonParaTipos implements Serializable {
     /**
      * Atributos de la clase que contiene para los tipos.
      * Mostrará el tipo de verdura.

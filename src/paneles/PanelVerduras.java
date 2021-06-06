@@ -5,37 +5,39 @@ import verduras.Verdura;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.Serializable;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class PanelVerduras {
-    private Set<BotonParaVerduras> listaVerduricas;
+public class PanelVerduras implements Serializable {
+    private PanelTiquet panelTiquet;
     private final JPanel panelVerdura;
 
     public PanelVerduras(PanelTiquet panelTiquet) {
-        this.listaVerduricas = new TreeSet<>();
-        this.panelVerdura = new JPanel(new GridLayout(0,5));
+        this.panelVerdura = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        this.panelTiquet = panelTiquet;
     }
-    public JPanel getPanelVerdura(){
+
+    public JPanel getPanelVerdura(Verdura verdura) {
         return panelVerdura;
     }
 
-    public String getListaVerduricas(){
-        String salida = " ";
-        for (BotonParaVerduras botonVerdura : listaVerduricas ) {
-            salida += botonVerdura.getVerdura().getNombre() + "\n";
-        }
-        return salida;
-        }
-        public void anyadeVerdura(Verdura verdura) {
-        listaVerduricas.add(new BotonParaVerduras(verdura));
-        panelVerdura.add(new BotonParaVerduras(verdura).getBoton());
-    }
-    public void actualizaListaDeBotones(Set<Verdura> verduras){
-        for (BotonParaVerduras botonParaVerduras : listaVerduricas) {
-            panelVerdura.add(botonParaVerduras.getBoton());
-        }
+    public void anyadeVerdura(Verdura verdura) {
+        BotonParaVerduras bpv = new BotonParaVerduras(verdura);
+        bpv.getBoton().setPreferredSize(new Dimension(150,150));
+        bpv.getBoton().addActionListener(e -> {panelTiquet.pulsado(verdura);
+                }
+        );
+        panelVerdura.add(bpv.getBoton());
     }
 
+    public void actualizaListaDeBotones(Set<Verdura> listaVerduricas) {
+        panelVerdura.removeAll();
+        for (Verdura verdura : listaVerduricas) {
+            anyadeVerdura(verdura);
+        }
+        panelVerdura.revalidate();
+        panelVerdura.repaint();
+    }
 }
 

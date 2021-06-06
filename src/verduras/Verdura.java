@@ -13,7 +13,6 @@ public class Verdura implements Serializable {
     private String nombre;
     private int precio;
     private Tipos tipo;
-    private ImageIcon foto;
 
     /**
      * Constructor de una verdura
@@ -26,7 +25,6 @@ public class Verdura implements Serializable {
         this.nombre = nombre;
         this.precio = precio;
         this.tipo = tipo;
-        this.foto= obtieneFoto();
     }
 
     /**
@@ -67,7 +65,9 @@ public class Verdura implements Serializable {
                 Objects.equals(nombre, verdura.nombre) &&
                 tipo == verdura.tipo;
     }
-
+    public String getInfo() {
+        return nombre + " - " + getPrecioEnCentimosYEuros();
+    }
     /**
      * Genera un hash
      * @return int
@@ -106,7 +106,8 @@ public class Verdura implements Serializable {
      * @return foto
      */
     private String getNombreCorrectamenteFoto() {
-        return nombre.replaceAll(" ", "-") + ".png";
+
+        return nombre.replaceAll(" ", "-") + ".jpg";
     }
 
     /**
