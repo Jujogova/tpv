@@ -26,7 +26,7 @@ public class Verdura implements Serializable {
         this.nombre = nombre;
         this.precio = precio;
         this.tipo = tipo;
-        this.foto= obtieneImagen();
+        this.foto= obtieneFoto();
     }
 
     /**
@@ -90,7 +90,7 @@ public class Verdura implements Serializable {
      * @return
      */
     public ImageIcon getFoto() {
-        return foto;
+        return obtieneFoto();
     }
 
     /**
@@ -98,7 +98,7 @@ public class Verdura implements Serializable {
      * @return
      */
     private String getNombreCorrectamente() {
-        return nombre.replaceAll(" ", "_");
+        return nombre.replaceAll(" ", "-");
     }
 
     /**
@@ -106,15 +106,15 @@ public class Verdura implements Serializable {
      * @return foto
      */
     private String getNombreCorrectamenteFoto() {
-        return nombre.replaceAll(" ", "_") + ".png";
+        return nombre.replaceAll(" ", "-") + ".png";
     }
 
     /**
      * Devuelve la imagen una vez la encuentra en su carpeta.
      * @return la imagen
      */
-    private ImageIcon obtieneImagen() {
-        File rutaImagenJuego = new File("Fotos" + File.separator + getNombreCorrectamenteFoto());
+    private ImageIcon obtieneFoto() {
+        File rutaImagenJuego = new File("Ftos" + File.separator + getNombreCorrectamenteFoto());
         ImageIcon icono = new ImageIcon(rutaImagenJuego.getPath());
 
         boolean fotoEncontrada = icono.getIconHeight() > -1;
@@ -129,11 +129,14 @@ public class Verdura implements Serializable {
     /**
      * Modifica el tamaño de la foto
      * @param foto
-     * @return iamgen omdificada
+     * @return iamgen modificada
      */
     private ImageIcon cambiaTamanyoFoto(ImageIcon foto) {
         Image img = foto.getImage();
         Image imagenTamanyoModif = img.getScaledInstance(50, 50, Image.SCALE_REPLICATE);
         return new ImageIcon(imagenTamanyoModif);
+    }
+    public String getInformacion(){
+        return nombre+" cuesta " +getPrecioEnCentimosYEuros();
     }
 }

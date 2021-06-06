@@ -13,7 +13,7 @@ public enum Tipos {
     INFLORESCENCIAS("Inflorescencia"),
     TALLOS("Tallo"),
     CORMOS("Cormo"),
-    SININFORMACION("Una verdura genérica");
+    VERDULERIA("Verduleria entera");
 
     private String tiposDescripcion;
 

@@ -31,7 +31,7 @@ public class PanelVerduras {
         listaVerduricas.add(new BotonParaVerduras(verdura));
         panelVerdura.add(new BotonParaVerduras(verdura).getBoton());
     }
-    public void actualizaListaDeBotones(){
+    public void actualizaListaDeBotones(Set<Verdura> verduras){
         for (BotonParaVerduras botonParaVerduras : listaVerduricas) {
             panelVerdura.add(botonParaVerduras.getBoton());
         }

@@ -21,7 +21,7 @@ public class PanelParaTipos {
         this.panelVerduras = panelVerduras;
         this.botonParaTipos = new HashSet<>();
         generaMapaDeTipos();
-      
+        generaBotonesPanel();
     }
 
     public JPanel getPanel() {
@@ -37,6 +37,19 @@ public class PanelParaTipos {
             listaTiposDeVerduras.put(tipo, new HashSet<>());
         }
     }
+    public void anyadeVerduraEnUnaListaConSuTipo(Verdura verdura) {
+        listaTiposDeVerduras.get(verdura.getTipo()).add(verdura);
+        listaTiposDeVerduras.get(Tipos.VERDULERIA).add(verdura);
 
+    }
+    private void generaBotonesPanel() {
+        for (Map.Entry<Tipos, Set<Verdura>> mao : listaTiposDeVerduras.entrySet()){
+            botonParaTipos.add(new BotonParaTipos(mao.getKey()));
+        }
+        for (BotonParaTipos bpt : botonParaTipos) {
+            panel.add(bpt.getBoton());
+            bpt.getBoton().addActionListener(e -> panelVerduras.actualizaListaDeBotones(listaTiposDeVerduras.get(bpt.getTipo())));
+        }
+        }
+    }
 
-}

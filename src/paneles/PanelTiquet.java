@@ -1,41 +1,41 @@
 package paneles;
 
+import verduras.Recibo;
 import verduras.Verdura;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.HashMap;
-import java.util.Map;
 
 public class PanelTiquet {
-    private final Map<Verdura, Integer> procesoDeTicket;
-    private final JPanel panelTiquet;
-    private final JTextArea datosDelTiquet;
-    private final JButton botonTiquet;
+    private final JPanel panelRecibo;
+    private final JPanel panelVerduras;
+    private final JPanel panelDelTiquet;
+    private JLabel totalDelTiquet;
+    private final Recibo recibo;
 
-    public PanelTiquet(){
-        this.procesoDeTicket = new HashMap<>();
-        this.panelTiquet=new JPanel( new GridLayout(1,5));
-        this.datosDelTiquet=new JTextArea(20,20);
-        this.datosDelTiquet.setEditable(true);
-        this.botonTiquet=new JButton();
-        panelTiquet.add(datosDelTiquet);
-        panelTiquet.add(botonTiquet);
+    public PanelTiquet(Recibo recibo){
+        this.panelRecibo = new JPanel(new GridLayout(2,1));
+        this.panelVerduras = new JPanel(new GridLayout(0, 2));
+        this.panelDelTiquet = new JPanel();
+        this.recibo = recibo;
+        this.panelRecibo.add(panelDelTiquet);
+        this.panelRecibo.add(panelDelTiquet);
+    }
+    public JPanel getPanelVerduras(){
+        return panelVerduras;
+    }
+    public JPanel getPanelRecibo(){
+        return panelRecibo;
+    }
+    public JPanel getPanelDelTiquet(){
+        return panelDelTiquet;
+    }
+    public JLabel getTotalDelTiquet(){
+        return totalDelTiquet;
+    }
+    public Recibo getRecibo(){
+        return recibo;
     }
 
-    public JPanel getPanelTiquet() {
-        return panelTiquet;
-    }
-
-    public JTextArea getDatosDelTiquet() {
-        return datosDelTiquet;
-    }
-
-    public JButton getBotonTiquet() {
-        return botonTiquet;
-    }
-    public void aniadirInformacion(Verdura verdura) {
-        procesoDeTicket.put(verdura, verdura.getPrecio());
-    }
 }
 
