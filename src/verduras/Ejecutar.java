@@ -25,7 +25,7 @@ public class Ejecutar {
         try (BufferedReader bf = new BufferedReader(new FileReader(ficLecturaObjetos))) {
             String linea;
             while ((linea = bf.readLine()) != null) {
-                List<String> campos = Arrays.asList(linea.split("-"));
+                List<String> campos = Arrays.asList(linea.split(""));
                 Tipos tipos = Tipos.valueOf(campos.get(2));
                 Verdura verdura = new Verdura(campos.get(0), Integer.parseInt(campos.get(1)), tipos);
                 panelVerduras.anyadeVerdura(verdura);
@@ -46,6 +46,8 @@ public class Ejecutar {
         JFrame frame = new JFrame();
         frame.setLayout(new BorderLayout());
 
+        frame.add(panelVerduras.getPanelVerdura(), BorderLayout.WEST);
+        frame.add(panelRecibo.getPanelDelTiquet(), BorderLayout.CENTER);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setUndecorated(false);
 

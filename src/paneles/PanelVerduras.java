@@ -18,7 +18,7 @@ public class PanelVerduras implements Serializable {
         this.panelTiquet = panelTiquet;
     }
 
-    public JPanel getPanelVerdura(Verdura verdura) {
+    public JPanel getPanelVerdura() {
         return panelVerdura;
     }
 

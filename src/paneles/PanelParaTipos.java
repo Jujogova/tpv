@@ -52,5 +52,18 @@ public class PanelParaTipos implements Serializable {
             bpt.getBoton().addActionListener(e -> panelVerduras.actualizaListaDeBotones(listaTiposDeVerduras.get(bpt.getTipo())));
         }
         }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PanelParaTipos that = (PanelParaTipos) o;
+        return Objects.equals(listaTiposDeVerduras, that.listaTiposDeVerduras) && Objects.equals(botonParaTipos, that.botonParaTipos) && Objects.equals(panelVerduras, that.panelVerduras) && Objects.equals(panel, that.panel);
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(listaTiposDeVerduras, botonParaTipos, panelVerduras, panel);
+    }
+
+}
 

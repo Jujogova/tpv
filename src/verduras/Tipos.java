@@ -1,6 +1,8 @@
 package verduras;
 
-public enum Tipos {
+import java.io.Serializable;
+
+public enum Tipos implements Serializable {
     /**
      * Nos muestra el tipo de verdura que es.
      */

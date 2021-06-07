@@ -1,6 +1,0 @@
-jun. 07, 2021 12:42:24 A. M. verduras.Log log
-SEVERE: No se ha encontrado el fichero.
-jun. 07, 2021 1:22:12 A. M. verduras.Log log
-SEVERE: No se ha encontrado el fichero.
-jun. 07, 2021 1:34:39 A. M. verduras.Log log
-SEVERE: Fichero inexistente.

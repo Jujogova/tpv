@@ -94,20 +94,12 @@ public class Verdura implements Serializable {
     }
 
     /**
-     * Muestra el nombre de forma comprensible
-     * @return
-     */
-    private String getNombreCorrectamente() {
-        return nombre.replaceAll(" ", "-");
-    }
-
-    /**
      * Coge el nombre de la foto
      * @return foto
      */
     private String getNombreCorrectamenteFoto() {
 
-        return nombre.replaceAll(" ", "-") + ".jpg";
+        return nombre.replaceAll("-", " ") + ".jpg";
     }
 
     /**
@@ -116,15 +108,15 @@ public class Verdura implements Serializable {
      */
     private ImageIcon obtieneFoto() {
         File rutaImagenJuego = new File("Ftos" + File.separator + getNombreCorrectamenteFoto());
-        ImageIcon icono = new ImageIcon(rutaImagenJuego.getPath());
+        ImageIcon foto = new ImageIcon(rutaImagenJuego.getPath());
 
-        boolean fotoEncontrada = icono.getIconHeight() > -1;
+        boolean fotoEncontrada = foto.getIconHeight() > -1;
         if (fotoEncontrada) {
-            icono = cambiaTamanyoFoto(icono);
+            foto = cambiaTamanyoFoto(foto);
         } else {
-            icono = new ImageIcon("Fotos" + File.separator + "verduragenerica.png");
+            foto = new ImageIcon("Fotos" + File.separator + "verduragenerica.png");
         }
-        return icono;
+        return foto;
     }
 
     /**
