@@ -10,12 +10,19 @@ import java.awt.*;
 import java.io.Serializable;
 import java.util.*;
 
+/**
+ * Panel para los tipos de verduras.
+ */
 public class PanelParaTipos implements Serializable {
     private final PanelVerduras panelVerduras;
     private final JPanel panel;
     private final Set<BotonParaTipos> botonParaTipos;
     private final Map<Tipos, Set<Verdura>> listaTiposDeVerduras;
 
+    /**
+     * Constructor de la clase
+     * @param panelVerduras
+     */
     public PanelParaTipos(PanelVerduras panelVerduras) {
         this.listaTiposDeVerduras = new HashMap<>();
         this.panel = new JPanel(new GridLayout(0, 1));
@@ -25,24 +32,43 @@ public class PanelParaTipos implements Serializable {
         generaBotonesPanel();
     }
 
+    /**
+     * Obtiene el panel
+     * @return panel
+     */
     public JPanel getPanel() {
         return panel;
     }
 
+    /**
+     * Obtiene la lista de verduras
+     * @return listaTiposDeVerduras
+     */
     public Map<Tipos, Set<Verdura>> getListaTiposDeVerduras() {
         return listaTiposDeVerduras;
     }
 
+    /**
+     * genera los mapas de tipos
+     */
     private void generaMapaDeTipos() {
         for (Tipos tipo : Tipos.values()) {
             listaTiposDeVerduras.put(tipo, new HashSet<>());
         }
     }
+
+    /**
+     * Coge las verduras y las añade en su respectivo tipo
+     * @param verdura
+     */
     public void anyadeVerduraEnUnaListaConSuTipo(Verdura verdura) {
         listaTiposDeVerduras.get(verdura.getTipo()).add(verdura);
         listaTiposDeVerduras.get(Tipos.VERDULERIA).add(verdura);
-
     }
+
+    /**
+     * Genera los botones del panel con cada tipo
+     */
     private void generaBotonesPanel() {
         for (Map.Entry<Tipos, Set<Verdura>> mao : listaTiposDeVerduras.entrySet()){
             botonParaTipos.add(new BotonParaTipos(mao.getKey()));
@@ -52,6 +78,7 @@ public class PanelParaTipos implements Serializable {
             bpt.getBoton().addActionListener(e -> panelVerduras.actualizaListaDeBotones(listaTiposDeVerduras.get(bpt.getTipo())));
         }
         }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

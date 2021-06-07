@@ -7,7 +7,9 @@ public class Log {
     private static final String FICHERO = "Log-Verduleria.txt";
     static Logger logger;
 
-
+    /**
+     * Constructor del Log
+     */
     private Log() {
         Logger rootLogger = Logger.getLogger("");
         Handler[] handlers = rootLogger.getHandlers();

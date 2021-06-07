@@ -11,10 +11,18 @@ import java.io.Serializable;
 import java.util.Objects;
 import java.util.logging.Level;
 
+/**
+ * Clase para los botones de vrduras
+ */
 public class BotonParaVerduras implements Serializable {
     private final JButton boton;
     private final Verdura verdura;
 
+    /**
+     * Constructor
+     * @param panelTiquet
+     * @param verdura
+     */
     public BotonParaVerduras(PanelTiquet panelTiquet, Verdura verdura) {
         this.verdura = verdura;
         this.boton = new JButton(verdura.getFoto());
@@ -23,14 +31,27 @@ public class BotonParaVerduras implements Serializable {
         });
     }
 
+    /**
+     * Retorna el boton de verduras
+     * @return boton
+     */
     public JButton getBoton() {
         return boton;
     }
 
+    /**
+     * Retorna la verdura
+     * @return verdura
+     */
     public Verdura getVerdura() {
         return verdura;
     }
 
+    /**
+     Compara objetos
+     * @param o
+     * @return si es igual  la verdura
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -38,7 +59,10 @@ public class BotonParaVerduras implements Serializable {
         BotonParaVerduras that = (BotonParaVerduras) o;
         return verdura.equals(that.verdura);
     }
-
+    /**
+     * Genera un hash
+     * @return int
+     */
     @Override
     public int hashCode() {
         return Objects.hash(verdura);

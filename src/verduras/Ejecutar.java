@@ -30,7 +30,6 @@ public class Ejecutar {
                 Verdura verdura = new Verdura(campos.get(0), Integer.parseInt(campos.get(1)), tipos);
                 panelVerduras.anyadeVerdura(verdura);
                 panelParaTipos.anyadeVerduraEnUnaListaConSuTipo(verdura);
-
             }
         } catch (FileNotFoundException e) {
             Log.log(Level.SEVERE, "Fichero inexistente.");

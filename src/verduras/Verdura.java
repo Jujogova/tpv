@@ -16,7 +16,6 @@ public class Verdura implements Serializable {
 
     /**
      * Constructor de una verdura
-     *
      * @param nombre
      * @param precio
      * @param tipo
@@ -29,20 +28,22 @@ public class Verdura implements Serializable {
 
     /**
      * Obtiene el nombre de la hortaliza
-     *
      * @return nombre
      */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     * Obtiene cuanto cuesta
+     * @return precio
+     */
     public Integer getPrecio() {
         return precio;
     }
 
     /**
      * Calcula el precio con un int, pero lo pasa a céntimos y euros.
-     *
      * @return precio con euros y céntimos
      */
     public String getPrecioEnCentimosYEuros() {
@@ -65,6 +66,11 @@ public class Verdura implements Serializable {
                 Objects.equals(nombre, verdura.nombre) &&
                 tipo == verdura.tipo;
     }
+
+    /**
+     * Nos devuelve información completa
+     * @return nombre con precio.
+     */
     public String getInfo() {
         return nombre + " - " + getPrecioEnCentimosYEuros();
     }
@@ -99,7 +105,7 @@ public class Verdura implements Serializable {
      */
     private String getNombreCorrectamenteFoto() {
 
-        return nombre.replaceAll("-", " ") + ".jpg";
+        return nombre.replaceAll("-", "") + ".jpg";
     }
 
     /**
@@ -129,7 +135,5 @@ public class Verdura implements Serializable {
         Image imagenTamanyoModif = img.getScaledInstance(50, 50, Image.SCALE_REPLICATE);
         return new ImageIcon(imagenTamanyoModif);
     }
-    public String getInformacion(){
-        return nombre+" cuesta " +getPrecioEnCentimosYEuros();
-    }
+
 }
