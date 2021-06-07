@@ -1,5 +1,7 @@
 package botones;
 
+import paneles.PanelTiquet;
+import verduras.Log;
 import verduras.Tipos;
 import verduras.Verdura;
 
@@ -7,14 +9,18 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.logging.Level;
 
 public class BotonParaVerduras implements Serializable {
     private final JButton boton;
     private final Verdura verdura;
 
-    public BotonParaVerduras(Verdura verdura) {
+    public BotonParaVerduras(PanelTiquet panelTiquet, Verdura verdura) {
         this.verdura = verdura;
         this.boton = new JButton(verdura.getFoto());
+        this.boton.addActionListener(e -> {
+            Log.log(Level.INFO, verdura.getNombre() + " añadida al carrito.");
+        });
     }
 
     public JButton getBoton() {

@@ -63,6 +63,7 @@ public class PanelTiquet implements Serializable {
         panelVerduras.removeAll();
         panelVerduras.repaint();
         panelVerduras.revalidate();
+        actualizaCosteTotalRecibo();
     }
     private void generarInformacionRecibo() {
         for (Verdura verd : recibo.getListaVerduraPinchadas()) {
@@ -76,7 +77,7 @@ public class PanelTiquet implements Serializable {
                 panelVerduras.remove(label);
                 panelVerduras.remove(button);
                 recibo.quitarDelCarro(verd);
-                actualizaCosteTotalRecibo();
+                generarInformacionRecibo();
                 panelVerduras.revalidate();
                 panelVerduras.repaint();
             });

@@ -25,19 +25,19 @@ public class Ejecutar {
         try (BufferedReader bf = new BufferedReader(new FileReader(ficLecturaObjetos))) {
             String linea;
             while ((linea = bf.readLine()) != null) {
-                List<String> campos = Arrays.asList(linea.split(""));
+                List<String> campos = Arrays.asList(linea.split("-"));
                 Tipos tipos = Tipos.valueOf(campos.get(2));
                 Verdura verdura = new Verdura(campos.get(0), Integer.parseInt(campos.get(1)), tipos);
                 panelVerduras.anyadeVerdura(verdura);
                 panelParaTipos.anyadeVerduraEnUnaListaConSuTipo(verdura);
-                Log.log(Level.INFO, "Verdura " + verdura.getNombre() + " añadida al carrito.");
+
             }
         } catch (FileNotFoundException e) {
             Log.log(Level.SEVERE, "Fichero inexistente.");
         } catch (ArrayIndexOutOfBoundsException aibe) {
             Log.log(Level.WARNING, "Verdura fuera de temporada.");
         } catch (IllegalArgumentException iae) {
-
+            Log.log(Level.WARNING, "Argumento inválido");
         } catch (IOException e) {
             Log.log(Level.WARNING, "Algo malo ha pasado.");
         }

@@ -6,15 +6,15 @@ public enum Tipos implements Serializable {
     /**
      * Nos muestra el tipo de verdura que es.
      */
-    HOJAS("Hoja"),
-    RAICES("Raiz"),
-    FRUTOS("Fruto"),
-    BULBOS("Bulbo"),
-    TUBERCULOS("Tuberculo"),
-    SEMILLAS("Semilla"),
-    INFLORESCENCIAS("Inflorescencia"),
-    TALLOS("Tallo"),
-    CORMOS("Cormo"),
+    HOJA("Hoja"),
+    RAIZ("Raiz"),
+    FRUTO("Fruto"),
+    BULBO("Bulbo"),
+    TUBERCULO("Tuberculo"),
+    SEMILLA("Semilla"),
+    INFLORESCENCIA("Inflorescencia"),
+    TALLO("Tallo"),
+    CORMO("Cormo"),
     VERDULERIA("Verduleria entera");
 
     private String tiposDescripcion;

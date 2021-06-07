@@ -22,9 +22,10 @@ public class PanelVerduras implements Serializable {
         }
 
         public void anyadeVerdura(Verdura verdura) {
-            BotonParaVerduras bpv = new BotonParaVerduras(verdura);
-            bpv.getBoton().setPreferredSize(new Dimension(150,150));
-            bpv.getBoton().addActionListener(e -> {panelTiquet.pulsado(verdura);
+            BotonParaVerduras bpv = new BotonParaVerduras(panelTiquet, verdura);
+            bpv.getBoton().setPreferredSize(new Dimension(50,50));
+            bpv.getBoton().addActionListener(e -> {
+                panelTiquet.pulsado(verdura);
                     }
             );
             panelVerdura.add(bpv.getBoton());
