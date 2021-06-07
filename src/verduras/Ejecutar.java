@@ -46,7 +46,8 @@ public class Ejecutar {
         JFrame frame = new JFrame();
         frame.setLayout(new BorderLayout());
 
-        frame.add(panelVerduras.getPanelVerdura(), BorderLayout.WEST);
+        frame.add(panelParaTipos.getPanel(), BorderLayout.WEST);
+        frame.add(panelVerduras.getPanelVerdura(), BorderLayout.EAST);
         frame.add(panelRecibo.getPanelDelTiquet(), BorderLayout.CENTER);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setUndecorated(false);
