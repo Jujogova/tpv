@@ -14,8 +14,7 @@ public enum Tipos implements Serializable {
     SEMILLA("Semilla"),
     INFLORESCENCIA("Inflorescencia"),
     TALLO("Tallo"),
-    CORMO("Cormo"),
-    VERDULERIA("Verduleria entera");
+    VERDULERIA("Verluderia entera");
 
     private String tiposDescripcion;
 

@@ -49,7 +49,7 @@ public class PanelParaTipos implements Serializable {
     }
 
     /**
-     * genera los mapas de tipos
+     * Genera los mapas de tipos
      */
     private void generaMapaDeTipos() {
         for (Tipos tipo : Tipos.values()) {

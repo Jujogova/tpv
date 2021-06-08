@@ -26,8 +26,11 @@ public class BotonParaVerduras implements Serializable {
     public BotonParaVerduras(PanelTiquet panelTiquet, Verdura verdura) {
         this.verdura = verdura;
         this.boton = new JButton(verdura.getFoto());
+        this.boton.setIcon(verdura.getFoto());
         this.boton.addActionListener(e -> {
             Log.log(Level.INFO, verdura.getNombre() + " añadida al carrito.");
+
+            panelTiquet.generaPanelDelTiquet();
         });
     }
 

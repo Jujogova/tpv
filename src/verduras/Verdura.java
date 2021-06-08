@@ -46,9 +46,9 @@ public class Verdura implements Serializable {
      * Calcula el precio con un int, pero lo pasa a céntimos y euros.
      * @return precio con euros y céntimos
      */
-    public String getPrecioEnCentimosYEuros() {
-    int euros = precio / 100;
-    int centimos = precio % 100;
+    public String getPrecioEnCentimosYEuros(int centimos) {
+    int euros = centimos / 100;
+    centimos = centimos % 100;
         return euros +","+centimos;
 }
 
@@ -67,13 +67,6 @@ public class Verdura implements Serializable {
                 tipo == verdura.tipo;
     }
 
-    /**
-     * Nos devuelve información completa
-     * @return nombre con precio.
-     */
-    public String getInfo() {
-        return nombre + " - " + getPrecioEnCentimosYEuros();
-    }
     /**
      * Genera un hash
      * @return int
@@ -104,8 +97,7 @@ public class Verdura implements Serializable {
      * @return foto
      */
     private String getNombreCorrectamenteFoto() {
-
-        return nombre.replaceAll("-", "") + ".jpg";
+        return nombre + ".jpg";
     }
 
     /**
@@ -113,8 +105,8 @@ public class Verdura implements Serializable {
      * @return la imagen
      */
     private ImageIcon obtieneFoto() {
-        File rutaImagenJuego = new File("Ftos" + File.separator + getNombreCorrectamenteFoto());
-        ImageIcon foto = new ImageIcon(rutaImagenJuego.getPath());
+        File rutaImagenVerdura = new File("Ftos" + File.separator + getNombreCorrectamenteFoto());
+        ImageIcon foto = new ImageIcon(rutaImagenVerdura.getPath());
 
         boolean fotoEncontrada = foto.getIconHeight() > -1;
         if (fotoEncontrada) {
@@ -132,7 +124,7 @@ public class Verdura implements Serializable {
      */
     private ImageIcon cambiaTamanyoFoto(ImageIcon foto) {
         Image img = foto.getImage();
-        Image imagenTamanyoModif = img.getScaledInstance(50, 50, Image.SCALE_REPLICATE);
+        Image imagenTamanyoModif = img.getScaledInstance(150, 150, Image.SCALE_REPLICATE);
         return new ImageIcon(imagenTamanyoModif);
     }
 

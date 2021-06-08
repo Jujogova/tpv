@@ -13,8 +13,6 @@ import java.util.logging.Level;
 
 public class Ejecutar {
     public static void main(String[] args) {
-        Dimension tamanyoMonitor = Toolkit.getDefaultToolkit().getScreenSize();
-
         File ficLecturaObjetos = new File("Verduras.csv");
         Recibo recibo = new Recibo();
         PanelTiquet panelRecibo = new PanelTiquet(recibo);
@@ -53,6 +51,7 @@ public class Ejecutar {
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }

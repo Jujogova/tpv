@@ -21,7 +21,7 @@ public class PanelVerduras implements Serializable {
      * @param panelTiquet
      */
         public PanelVerduras(PanelTiquet panelTiquet) {
-            this.panelVerdura = new JPanel(new FlowLayout(FlowLayout.CENTER));
+            this.panelVerdura = new JPanel(new GridLayout(8,2));
             this.panelTiquet = panelTiquet;
         }
 
@@ -39,7 +39,7 @@ public class PanelVerduras implements Serializable {
      */
         public void anyadeVerdura(Verdura verdura) {
             BotonParaVerduras bpv = new BotonParaVerduras(panelTiquet, verdura);
-            bpv.getBoton().setPreferredSize(new Dimension(50,50));
+            bpv.getBoton().setPreferredSize(new Dimension(150,150));
             bpv.getBoton().addActionListener(e -> {
                 panelTiquet.pulsado(verdura);
                     }

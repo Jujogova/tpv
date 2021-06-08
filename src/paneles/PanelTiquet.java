@@ -6,6 +6,7 @@ import verduras.Verdura;
 import javax.swing.*;
 import java.awt.*;
 import java.io.Serializable;
+import java.util.Map;
 
 /**
  *Clase para el panel del recibo
@@ -22,9 +23,10 @@ public class PanelTiquet implements Serializable {
      * @param recibo
      */
     public PanelTiquet(Recibo recibo){
-        this.panelRecibo = new JPanel(new GridLayout(2,1));
-        this.panelVerduras = new JPanel(new GridLayout(0, 2));
+        this.panelRecibo = new JPanel(new GridLayout(0,1));
+        this.panelVerduras = new JPanel(new GridLayout(0, 1));
         this.panelDelTiquet = new JPanel();
+        panelDelTiquet.setLayout(new BorderLayout());
         this.recibo = recibo;
         this.panelRecibo.add(panelDelTiquet);
         this.panelRecibo.add(panelVerduras);
@@ -34,24 +36,32 @@ public class PanelTiquet implements Serializable {
     /**
      * Genera el total de lo que está costando la compra y el panel de impresión.
      */
-    private void generaPanelDelTiquet() {
-        this.totalDelTiquet = new JLabel("Usted se está gastando por el momento: 0€");
-        totalDelTiquet.setFont(new Font("Courier New", Font.ITALIC, 26));
-        panelDelTiquet.add(totalDelTiquet);
-        JButton boton = new JButton("Recibo");
-        boton.addActionListener( e-> {
-            int respuesta = JOptionPane.showConfirmDialog(panelRecibo,"¿Desea recibo?", "Imprimición", JOptionPane.YES_NO_OPTION);
-            if (respuesta == JOptionPane.YES_OPTION) {
-            }
+    public void generaPanelDelTiquet() {
+        panelDelTiquet.removeAll();
+        JPanel panel = new JPanel();
+        BoxLayout bl = new BoxLayout(panel, BoxLayout.PAGE_AXIS);
+        panel.setLayout(bl);
+        for (Map.Entry<Verdura, Integer> v : recibo.getListaVerduraPinchadas().entrySet()) {
+            JPanel tempPanel = new JPanel();
+            tempPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+            JLabel  jl =  new JLabel(v.getKey().getNombre() + " " +v.getValue() + " Total: " +v.getKey().getPrecioEnCentimosYEuros(v.getKey().getPrecio()*v.getValue()));
+            jl.setBorder(BorderFactory.createEmptyBorder(0,0,0,10));
+            tempPanel.add(jl);
+            JButton jb = new JButton("X");
+            jb.addActionListener(e-> {
+                recibo.quitarDelCarro(v.getKey());
+                generaPanelDelTiquet();
+            });
+            tempPanel.add(jb);
+            panel.add(tempPanel);
+        }
+        panel.add(new JLabel("Total de la compra:" + recibo.precioTotalDeLaCompra() ));
+        panelDelTiquet.add(panel, BorderLayout.PAGE_START);
+        panelDelTiquet.repaint();
+        panelDelTiquet.revalidate();
+        panelDelTiquet.getParent().repaint();
+        panelDelTiquet.getParent().revalidate();
 
-        });
-        panelDelTiquet.add(boton);
-/**
- * Cuando imprimes te dice lo que tienes que pagar
- */
-    }
-    private void actualizaCosteTotalRecibo() {
-        totalDelTiquet.setText("Recibo a pagar: " + recibo.getReciboTotal());
     }
 
     /**
@@ -87,17 +97,17 @@ public class PanelTiquet implements Serializable {
         panelVerduras.removeAll();
         panelVerduras.repaint();
         panelVerduras.revalidate();
-        actualizaCosteTotalRecibo();
     }
 
     /**
-     * Genera la informacion del recibo ademas de poder borrar del carro de compra.
+     * Genera la información del recibo ademas de poder borrar del carro de compra.
      */
+    /*
     private void generarInformacionRecibo() {
         for (Verdura verd : recibo.getListaVerduraPinchadas()) {
             int cantidad = recibo.getVerdurasAlmacenadas(verd);
             String subtotal = recibo.getTotalTotalisimo(verd);
-            JLabel label = new JLabel("x" + cantidad + " " + verd.getInfo() + " - Total: " + subtotal);
+            JLabel label = new JLabel(verd.getNombre() + cantidad + " " + verd.getInfo() + " - Total: " + subtotal);
             label.setFont(new Font("Courier New", Font.PLAIN, 20));
             JButton button = new JButton("\uD83D\uDDD1");
             button.addActionListener( e-> {
@@ -113,5 +123,6 @@ public class PanelTiquet implements Serializable {
         }
     }
 
+*/
 }
 
